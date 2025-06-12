@@ -1,0 +1,184 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us | PowerFlex Gym{% endblock %}
+
+{% block content %}
+<style>
+  /* Hero Section */
+  .about-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                url('{% static "images/about-hero.jpg" %}') no-repeat center center/cover;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    animation: fadeIn 2s ease-in;
+  }
+
+  .about-hero h1 {
+    font-size: 3.5rem;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+    animation: slideUp 1.5s ease-in-out;
+  }
+
+  /* Section Base Style */
+  .section {
+    padding: 70px 20px;
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+    animation: fadeIn 1.5s ease;
+  }
+
+  .section h2 {
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+    color: #e63946;
+    animation: slideRight 1s ease;
+  }
+
+  .section p {
+    font-size: 1.05rem;
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 30px;
+  }
+
+  /* Benefits Section */
+  .benefit-section {
+    max-width: 1000px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .benefit-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, #f8f8f8, #ffffff);
+    padding: 25px 35px;
+    border-left: 6px solid #e63946;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeSlideUp 0.6s ease forwards;
+  }
+
+  .benefit-item:nth-child(2) { animation-delay: 0.2s; }
+  .benefit-item:nth-child(3) { animation-delay: 0.4s; }
+  .benefit-item:nth-child(4) { animation-delay: 0.6s; }
+
+  .benefit-heading {
+    flex: 1;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #1d3557;
+  }
+
+  .benefit-description {
+    flex: 3;
+    font-size: 1.05rem;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .benefit-item {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
+    }
+
+    .benefit-heading {
+      margin-bottom: 10px;
+    }
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes slideRight {
+    from { transform: translateX(-50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+
+  @keyframes fadeSlideUp {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+</style>
+
+<!-- ✅ Hero Banner -->
+<section class="about-hero">
+  <h1>About PowerFlex Gym</h1>
+</section>
+
+<!-- ✅ Our Mission -->
+<section class="section" id="mission">
+  <h2>Our Mission</h2>
+  <p>
+    At PowerFlex Gym, our mission is to empower individuals to live healthier and stronger lives. 
+    We believe fitness is a lifelong journey, and we’re here to support you at every step — 
+    physically, mentally, and emotionally. Through cutting-edge equipment, expert trainers, and 
+    a community-driven environment, we strive to help you unlock your full potential.
+  </p>
+</section>
+
+<!-- ✅ Gym Benefits -->
+<section class="section" id="benefits">
+  <h2>Gym Benefits</h2>
+  <div class="benefit-section">
+
+    <div class="benefit-item">
+      <div class="benefit-heading">Modern Equipment</div>
+      <div class="benefit-description">
+        Stay ahead with our state-of-the-art gym machines and training tools.
+      </div>
+    </div>
+
+    <div class="benefit-item">
+      <div class="benefit-heading">Flexible Timings</div>
+      <div class="benefit-description">
+        Morning or evening — work out at a time that suits your lifestyle.
+      </div>
+    </div>
+
+    <div class="benefit-item">
+      <div class="benefit-heading">Group Classes</div>
+      <div class="benefit-description">
+        From Zumba to strength training, enjoy energy-packed group sessions.
+      </div>
+    </div>
+
+    <div class="benefit-item">
+      <div class="benefit-heading">Personal Training</div>
+      <div class="benefit-description">
+        One-on-one coaching designed to maximize your results.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ✅ Free Diet Plans -->
+<section class="section" id="diet-plans">
+  <h2>Free Diet & Nutrition Support</h2>
+  <p>Your fitness is 30% workout and 70% what you eat! Our in-house experts provide personalized diet charts, supplement advice, and healthy eating guidance — all free with membership.</p>
+</section>
+{% endblock %}

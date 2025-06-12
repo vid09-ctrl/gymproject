@@ -1,0 +1,238 @@
+{% extends 'base.html' %}
+
+{% block title %}Home | PowerFlex Gym{% endblock %}
+{% load static %}
+
+{% block content %}
+<style>
+  .hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('{% static "images/gym.jpg" %}') no-repeat center center/cover;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    color: #fff;
+    padding: 0 20px;
+  }
+
+  .hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.6);
+  }
+
+  .hero p {
+    font-size: 1.3rem;
+    margin-top: 15px;
+    max-width: 700px;
+    line-height: 1.6;
+    color: #f1f1f1;
+  }
+
+  .image-info-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 100px 10%;
+    flex-wrap: wrap;
+    background-color: #fff;
+  }
+
+  .image-info-section:nth-child(even) {
+    flex-direction: row-reverse;
+    background-color: #f8f8f8;
+  }
+
+  .image-info {
+    flex: 1 1 400px;
+  }
+
+  .image-info img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  }
+
+  .text-info {
+    flex: 1 1 400px;
+  }
+
+  .text-info h2 {
+    color: #e63946;
+    font-size: 2.4rem;
+    margin-bottom: 15px;
+  }
+
+  .text-info p {
+    font-size: 1.05rem;
+    color: #444;
+    line-height: 1.7;
+  }
+
+  .facilities {
+    background-color: #f2f2f2;
+    padding: 70px 20px;
+    text-align: center;
+  }
+
+  .facilities h2 {
+    font-size: 2.4rem;
+    margin-bottom: 15px;
+    color: #e63946;
+  }
+
+  .facilities-section {
+  background-color: #f9f9f9;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.facility-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 40px;
+}
+
+.facility-text {
+  width: 45%;
+  min-width: 280px;
+  text-align: left;
+}
+
+.facility-text h2 {
+  color: #e63946;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.facility-text p {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .facility-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .facility-text {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+}
+
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero p {
+      font-size: 1rem;
+    }
+
+    .text-info h2 {
+      font-size: 1.8rem;
+    }
+
+    .text-info p {
+      font-size: 1rem;
+    }
+  }
+  
+</style>
+
+<!-- ✅ Hero Section -->
+<section class="hero">
+  <h1>Welcome to PowerFlex Gym</h1>
+  <p>“The pain you feel today will be the strength you feel tomorrow. Start your transformation now.”</p>
+</section>
+
+<!-- ✅ Image + Info Section 1 -->
+<section class="image-info-section">
+  <div class="image-info">
+    <img src="{% static 'images/training.jpg' %}" alt="Training Session">
+  </div>
+  <div class="text-info">
+    <h2>Tailored Training Programs</h2>
+    <p>Whether you're a beginner or an athlete, our customized training plans are designed to help you reach your full potential. Get the body and confidence you deserve.</p>
+  </div>
+</section>
+
+<!-- ✅ Image + Info Section 2 -->
+<section class="image-info-section">
+  <div class="image-info">
+    <img src="{% static 'images/nutrition.jpg' %}" alt="Nutrition Guidance">
+  </div>
+  <div class="text-info">
+    <h2>Nutrition & Wellness Support</h2>
+    <p>Fuel your body right! Our expert nutritionists help you build healthy habits, meal plans, and lifestyle choices to support your fitness journey.</p>
+  </div>
+</section>
+
+<!-- ✅ Image + Info Section 3 -->
+<section class="image-info-section">
+  <div class="image-info">
+    <img src="{% static 'images/group.jpg' %}" alt="Group Classes">
+  </div>
+  <div class="text-info">
+    <h2>Dynamic Group Classes</h2>
+    <p>Join our energizing group sessions like Zumba, CrossFit, HIIT and more — designed to keep you motivated and moving with a community of like-minded fitness lovers.</p>
+  </div>
+</section>
+
+<!-- ✅ Image + Info Section 4 -->
+<section class="image-info-section">
+  <div class="image-info">
+    <img src="{% static 'images/recovery.jpg' %}" alt="Recovery & Relaxation">
+  </div>
+  <div class="text-info">
+    <h2>Recovery & Relaxation</h2>
+    <p>Recharge your body and mind with our steam rooms, massage chairs, and dedicated recovery zones. Balance your hard work with essential recovery care.</p>
+  </div>
+</section>
+
+<!-- ✅ Image + Info Section 5 -->
+<section class="image-info-section">
+  <div class="image-info">
+    <img src="{% static 'images/gym-night.jpg' %}" alt="24/7 Gym Access">
+  </div>
+  <div class="text-info">
+    <h2>Train Anytime, Day or Night</h2>
+    <p>Your fitness goals shouldn’t wait! With 24/7 access, PowerFlex Gym lets you train on your schedule — early mornings, late nights, and everything in between.</p>
+  </div>
+</section>
+
+<!-- ✅ Facilities Section (Left-Right Layout) -->
+<section class="facilities-section">
+    <h1 class="facilities-heading">Our Premium Facilities</h1>
+  <div class="facility-row">
+    <div class="facility-text">
+      <h2>Cardio Zone</h2>
+      <p>High-performance treadmills, bikes, and ellipticals to boost your stamina and heart health.</p>
+    </div>
+    <div class="facility-text">
+      <h2>Strength Area</h2>
+      <p>Premium weight machines and free weights designed to sculpt and strengthen every muscle.</p>
+    </div>
+  </div>
+
+  <div class="facility-row">
+    <div class="facility-text">
+      <h2>Yoga & Mindfulness</h2>
+      <p>Dedicated space for inner peace with daily yoga, meditation, and wellness sessions.</p>
+    </div>
+    <div class="facility-text">
+      <h2>Expert Trainers</h2>
+      <p>Certified personal trainers to guide, motivate, and personalize your fitness journey.</p>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

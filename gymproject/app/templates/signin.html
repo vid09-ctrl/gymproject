@@ -1,0 +1,203 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign In{% endblock %}
+
+{% block content %}
+<style>
+  body {
+    background: linear-gradient(to right, #e0f7fa, #80deea);
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px 25px;
+    border-radius: 12px;
+    animation: slideUp 0.6s ease-out;
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(60px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  h2 {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #00796b;
+  }
+
+  .motivational-line {
+    text-align: center;
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #333;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #b2ebf2;
+    border-radius: 6px;
+    outline: none;
+    transition: 0.3s;
+  }
+
+  input:focus {
+    border-color: #00796b;
+    box-shadow: 0 0 5px rgba(0, 121, 107, 0.3);
+  }
+
+  .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 38px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #555;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    background: #00796b;
+    color: white;
+    padding: 10px;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #004d40;
+  }
+
+  .extra-links {
+    margin-top: 15px;
+    text-align: center;
+  }
+
+  .extra-links a {
+    color: #00796b;
+    text-decoration: none;
+    font-size: 14px;
+  }
+
+  .google-btn {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background: #db4437;
+    color: white;
+    font-weight: 600;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+
+  .google-btn:hover {
+    background: #c23321;
+  }
+
+  .alert {
+    background: #ffcdd2;
+    color: #b71c1c;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-weight: 500;
+  }
+</style>
+
+<div class="container">
+  <div class="motivational-line">
+    "Welcome back! Every rep counts — Let’s crush it today!"
+  </div>
+
+  <h2>Sign In</h2>
+  <form action="/signin/" method="POST" onsubmit="return validateForm()">
+    {% csrf_token %}
+
+    {% if errmsg %}
+      <div class="alert">⚠️ {{ errmsg }}</div>
+    {% endif %}
+
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" name="uname" id="username" placeholder="Enter your username">
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" name="upass" id="password" placeholder="Enter your password">
+      <span class="toggle-password" onclick="togglePassword()">👁</span>
+    </div>
+
+    <button type="submit">Sign In</button>
+
+    <div class="extra-links">
+      <a href="/forgotpass/">Forgot Password?</a>
+    </div>
+
+    <a href="{% url 'social:begin' 'google-oauth2' %}" class="google-btn">
+      Sign in with Google
+    </a>
+  </form>
+</div>
+
+<script>
+  function togglePassword() {
+    const password = document.getElementById("password");
+    password.type = password.type === "password" ? "text" : "password";
+  }
+
+  function validateForm() {
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    if (!username || !password) {
+      alert("Please fill out both username and password.");
+      return false;
+    }
+    return true;
+  }
+</script>
+{% endblock %}

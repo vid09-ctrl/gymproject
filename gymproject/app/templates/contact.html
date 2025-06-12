@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact Us | PowerFlex Gym{% endblock %}
+
+{% block content %}
+<style>
+  /* ✅ Animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* ✅ Google Map Styling */
+  .map-container {
+    width: 100%;
+    height: 400px;
+    margin-bottom: 40px;
+    animation: fadeIn 1.5s ease-in;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  /* ✅ Main Contact Section Layout */
+  .contact-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px 60px;
+    animation: fadeUp 1.2s ease;
+  }
+
+  .contact-details,
+  .contact-form {
+    flex: 1 1 45%;
+    background: #fdfdfd;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    margin: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .contact-details:hover,
+  .contact-form:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  }
+
+  .contact-details h2,
+  .contact-form h2 {
+    color: #e63946;
+    margin-bottom: 20px;
+    font-size: 1.9rem;
+    border-left: 4px solid #e63946;
+    padding-left: 12px;
+  }
+
+  .contact-details p {
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: #444;
+    font-size: 1rem;
+  }
+
+  .contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 14px 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    border-color: #e63946;
+    box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
+  }
+
+  .contact-form button {
+    background-color: #e63946;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.05rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+
+  .contact-form button:hover {
+    background-color: #d62839;
+  }
+
+  @media (max-width: 768px) {
+    .contact-section {
+      flex-direction: column;
+    }
+
+    .contact-details,
+    .contact-form {
+      flex: 1 1 100%;
+    }
+  }
+</style>
+
+<!-- ✅ Google Map -->
+<div class="map-container">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.0551048692196!2d73.91870521528326!3d18.56034998739121!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c153c1a8fb8f%3A0xd85101508767ae9e!2sPhoenix%20Marketcity%20Viman%20Nagar%2C%20Pune!5e0!3m2!1sen!2sin!4v1718191605531!5m2!1sen!2sin"
+    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
+<!-- ✅ Contact Info & Form -->
+<div class="contact-section">
+  <!-- Contact Info -->
+  <div class="contact-details">
+    <h2>Contact Information</h2>
+    <p><strong>Address:</strong> PowerFlex Gym, Viman Nagar, Pune, Maharashtra - 411014</p>
+    <p><strong>Phone:</strong> +91 98765 43210</p>
+    <p><strong>Email:</strong> contact@powerflexgym.com</p>
+    <p><strong>Hours:</strong> Mon - Sun: 6:00 AM - 10:00 PM</p>
+  </div>
+
+  <!-- Contact Form -->
+  <div class="contact-form">
+    <h2>Send Us a Message</h2>
+    <form action="#" method="post">
+      {% csrf_token %}
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
