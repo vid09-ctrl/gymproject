@@ -1,0 +1,68 @@
+<!-- templates/success.html -->
+{% extends 'base.html' %}
+
+{% block title %}Thank You | PowerFlex Gym{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 90vh;">
+  <div class="success-message text-center p-4 shadow-lg bg-white rounded">
+    <h2 class="text-success mb-3">🎉 Thank You!</h2>
+    <p class="lead text-muted mb-4">We’ve received your request for a free trial. Our team will contact you shortly.</p>
+    <a href="{% url 'index' %}" class="btn btn-primary">🏋️‍♂️ Back to Home</a>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+  body {
+    background: linear-gradient(to right, #c2e9fb, #a1c4fd);
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .success-message {
+    max-width: 500px;
+    width: 100%;
+    border-radius: 20px;
+    animation: fadeIn 0.6s ease-in-out;
+  }
+
+  .btn-primary {
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    background: linear-gradient(to right, #007bff, #00c6ff);
+    border: none;
+    transition: 0.3s;
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(to right, #0056b3, #0096c7);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .btn-submit {
+    background: linear-gradient(to right, #007bff, #00c6ff);
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.3s;
+  }
+
+  .btn-submit:hover {
+    background: linear-gradient(to right, #0056b3, #0096c7);
+    transform: scale(1.03);
+  }
+</style>
+{% endblock %}

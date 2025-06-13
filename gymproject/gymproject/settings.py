@@ -141,3 +141,14 @@ LOGOUT_REDIRECT_URL = '/'
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = 'your-client-id'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'your-client-secret'
+
+
+
+# settings.py
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'nanawarevidya33@gmail.com'
+EMAIL_HOST_PASSWORD = 'rwrf djer eepo bsue'  # Use App Password, not your Gmail password

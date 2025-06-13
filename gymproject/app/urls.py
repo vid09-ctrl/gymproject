@@ -10,9 +10,9 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
     path('facilities/', views.facilities, name='facilities'),
-    path('free-trial/', views.free_trial, name='free_trial'),
-
-
-
+     path('free-trial/', views.free_trial_view, name='free_trial'),
+    path('forgot/', views.forgot, name='forgot'), 
+    path('resetpassword/<str:uname>/',views.resetpassword,name="resetpassword"),
+    path('success/',views.success,name='success')
 
 ]
