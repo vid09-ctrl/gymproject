@@ -76,8 +76,26 @@ def signup(req):
 def about(req):
     return render(req, "about.html")
 
-def contact(req):
-    return render(req, "contact.html")
+def contact(request):
+    if request.method == "POST":
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+
+        subject = f"New Contact Message from {name}"
+        message_body = f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}"
+
+        send_mail(
+            subject,
+            message_body,
+            email, 
+            ['nanawarevidya33@gmail.com'], 
+            fail_silently=False,
+        )
+        messages.success(request, "Message sent successfully!")
+        return redirect('contact')  
+
+    return render(request, "contact.html")
 
 def facilities(req):
     return render(req, "facilities.html")

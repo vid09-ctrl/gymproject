@@ -128,7 +128,13 @@
     width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
   </iframe>
 </div>
-
+{% if messages %}
+  {% for message in messages %}
+    <div style="background-color: #d4edda; padding: 10px; border-radius: 5px; margin-bottom: 20px; color: #155724;">
+      {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
 <!-- ✅ Contact Info & Form -->
 <div class="contact-section">
   <!-- Contact Info -->
@@ -136,7 +142,7 @@
     <h2>Contact Information</h2>
     <p><strong>Address:</strong> PowerFlex Gym, Viman Nagar, Pune, Maharashtra - 411014</p>
     <p><strong>Phone:</strong> +91 98765 43210</p>
-    <p><strong>Email:</strong> contact@powerflexgym.com</p>
+    <p><strong>Email:</strong> nanawarevidya33@gmail.com</p>
     <p><strong>Hours:</strong> Mon - Sun: 6:00 AM - 10:00 PM</p>
   </div>
 
@@ -152,4 +158,7 @@
     </form>
   </div>
 </div>
+
+
+
 {% endblock %}
